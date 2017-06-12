@@ -46,9 +46,18 @@ if [ "$PLUGIN_PRESERVE_TIMESTAMPS" = "false" ] ; then
     preserve_timestamps=""
 fi
 
+verbose=""
+case "$PLUGIN_VERBOSE" in
+   "1") verbose="-v"
+   ;;
+   "2") verbose="-vv"
+   ;;
+   "3") verbose="-vvv"
+   ;;
+esac
+
 port="-P ${PLUGIN_PORT:-22}"
 
-verbose="-v" # -vvv
 batch_mode="-B"
 identity_file="-i ~/.ssh/id_rsa"
 skip_host_validation="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
