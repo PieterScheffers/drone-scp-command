@@ -30,12 +30,7 @@ echo
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 echo "$PLUGIN_KEY" | tee ~/.ssh/id_rsa
-echo "$PLUGIN_PUBLIC_KEY" | tee ~/.ssh/id_rsa.pub
 chmod 600 ~/.ssh/id_rsa
-chmod 644 ~/.ssh/id_rsa.pub
-
-ls -la ~/.ssh
-cat ~/.ssh/id_rsa
 
 recursive="-r"
 if [ "$PLUGIN_RECURSIVE" != "false" ] ; then
@@ -57,8 +52,9 @@ port="-P ${PLUGIN_PORT:-22}"
 verbose="-vvv"
 batch_mode="-B"
 identity_file="-i ~/.ssh/id_rsa"
+skip_host_validation="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 # sshpass
 
-echo "Command: scp $identity_file $recursive $verbose $preserve_timestamps $compression $batch_mode $port $PLUGIN_SOURCE $PLUGIN_TARGET"
-scp $identity_file $recursive $verbose $preserve_timestamps $compression $batch_mode $port $PLUGIN_SOURCE $PLUGIN_TARGET
+echo "Command: scp $identity_file $recursive $verbose $preserve_timestamps $compression $batch_mode $port $skip_host_validation $PLUGIN_SOURCE $PLUGIN_TARGET"
+scp $identity_file $recursive $verbose $preserve_timestamps $compression $batch_mode $port $skip_host_validation $PLUGIN_SOURCE $PLUGIN_TARGET
