@@ -57,4 +57,8 @@ skip_host_validation="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=n
 # TODO: use sshpass to also accept a password
 
 echo "Command: scp $identity_file $recursive $verbose $preserve_timestamps $compression $batch_mode $port $skip_host_validation $PLUGIN_SOURCE $PLUGIN_TARGET"
+echo
+
+echo
 scp $identity_file $recursive $verbose $preserve_timestamps $compression $batch_mode $port $skip_host_validation $PLUGIN_SOURCE $PLUGIN_TARGET
+echo
