@@ -32,17 +32,17 @@ echo "$PLUGIN_KEY" | tee ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 
 recursive="-r"
-if [ "$PLUGIN_RECURSIVE" != "false" ] ; then
+if [ "$PLUGIN_RECURSIVE" = "false" ] ; then
     recursive=""
 fi
 
 compression="-C"
-if [ ! "$PLUGIN_COMPRESSION" != "false" ] ; then
+if [ "$PLUGIN_COMPRESSION" = "false" ] ; then
     compression=""
 fi
 
 preserve_timestamps="-p"
-if [ ! "$PLUGIN_PRESERVE_TIMESTAMPS" != "false" ] ; then
+if [ "$PLUGIN_PRESERVE_TIMESTAMPS" = "false" ] ; then
     preserve_timestamps=""
 fi
 
