@@ -29,9 +29,7 @@ echo
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 echo "${PLUGIN_KEY}" | tee ~/.ssh/id_rsa
-chmod 644 ~/.ssh/id_rsa
-
-cat ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa
 
 recursive="-r"
 if [ "$PLUGIN_RECURSIVE" != "false" ] ; then
@@ -52,8 +50,9 @@ port="-P ${PLUGIN_PORT:-22}"
 
 verbose="-v"
 batch_mode="-B"
+identity_file="-i ~/.ssh/id_rsa"
 
 # sshpass
 
-echo "Command: scp $recursive $verbose $preserve_timestamps $compression $batch_mode $port $PLUGIN_SOURCE $PLUGIN_TARGET"
-scp $recursive $verbose $preserve_timestamps $compression $batch_mode $port $PLUGIN_SOURCE $PLUGIN_TARGET
+echo "Command: scp $identity_file $recursive $verbose $preserve_timestamps $compression $batch_mode $port $PLUGIN_SOURCE $PLUGIN_TARGET"
+scp $identity_file $recursive $verbose $preserve_timestamps $compression $batch_mode $port $PLUGIN_SOURCE $PLUGIN_TARGET
