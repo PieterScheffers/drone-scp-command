@@ -31,6 +31,9 @@ chmod 700 ~/.ssh
 echo "${PLUGIN_KEY}" | tee ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 
+ls -la ~/.ssh
+cat ~/.ssh/id_rsa
+
 recursive="-r"
 if [ "$PLUGIN_RECURSIVE" != "false" ] ; then
     recursive=""
