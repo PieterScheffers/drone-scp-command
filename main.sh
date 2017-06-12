@@ -26,13 +26,13 @@ echo
 echo
 
 # create ssh key file
-# mkdir -p ~/.ssh
-# chmod 700 ~/.ssh
-echo "${PLUGIN_KEY}" | tee /bin/id_rsa
-chmod 600 /bin/id_rsa
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+echo "$PLUGIN_KEY" | tee ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa
 
-ls -la /bin
-cat /bin/id_rsa
+ls -la ~/.ssh
+cat ~/.ssh/id_rsa
 
 recursive="-r"
 if [ "$PLUGIN_RECURSIVE" != "false" ] ; then
@@ -51,9 +51,9 @@ fi
 
 port="-P ${PLUGIN_PORT:-22}"
 
-verbose="-v"
+verbose="-vvv"
 batch_mode="-B"
-identity_file="-i /bin/id_rsa"
+identity_file="-i ~/.ssh/id_rsa"
 
 # sshpass
 
