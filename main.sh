@@ -34,17 +34,17 @@ chmod 644 ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa
 
 recursive="-r"
-if [ ! "$PLUGIN_RECURSIVE" ] ; then
+if [ "$PLUGIN_RECURSIVE" != "false" ] ; then
     recursive=""
 fi
 
 compression="-C"
-if [ ! "$PLUGIN_COMPRESSION" ] ; then
+if [ ! "$PLUGIN_COMPRESSION" != "false" ] ; then
     compression=""
 fi
 
 preserve_timestamps="-p"
-if [ ! "$PLUGIN_PRESERVE_TIMESTAMPS" ] ; then
+if [ ! "$PLUGIN_PRESERVE_TIMESTAMPS" != "false" ] ; then
     preserve_timestamps=""
 fi
 
