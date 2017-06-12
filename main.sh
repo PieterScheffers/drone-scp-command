@@ -9,7 +9,6 @@ set -e
 #            [[user@]host1:]file1 ... [[user@]host2:]file2
 
 # PLUGIN_KEY <required>
-# PLUGIN_PUBLIC_KEY <required>
 # PLUGIN_PORT <default: 22>
 # PLUGIN_SOURCE <required>
 # PLUGIN_TARGET <required>
