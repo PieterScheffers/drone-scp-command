@@ -19,12 +19,12 @@ set -e
 
 echo "Current working dir: $PWD"
 echo
-echo "ENVIRONMENT VARIABLES: "
-echo
-printenv
-echo
-echo
-echo
+# echo "ENVIRONMENT VARIABLES: "
+# echo
+# printenv
+# echo
+# echo
+# echo
 
 # create ssh key file
 mkdir -p ~/.ssh
@@ -49,12 +49,12 @@ fi
 
 port="-P ${PLUGIN_PORT:-22}"
 
-verbose="-vvv"
+verbose="-v" # -vvv
 batch_mode="-B"
 identity_file="-i ~/.ssh/id_rsa"
 skip_host_validation="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
-# sshpass
+# TODO: use sshpass to also accept a password
 
 echo "Command: scp $identity_file $recursive $verbose $preserve_timestamps $compression $batch_mode $port $skip_host_validation $PLUGIN_SOURCE $PLUGIN_TARGET"
 scp $identity_file $recursive $verbose $preserve_timestamps $compression $batch_mode $port $skip_host_validation $PLUGIN_SOURCE $PLUGIN_TARGET
