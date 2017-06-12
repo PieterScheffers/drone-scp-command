@@ -28,7 +28,7 @@ echo
 # create ssh key file
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
-echo "$PLUGIN_KEY" | tee ~/.ssh/id_rsa
+echo "$PLUGIN_KEY" | tee ~/.ssh/id_rsa > /dev/null
 chmod 600 ~/.ssh/id_rsa
 
 recursive="-r"
