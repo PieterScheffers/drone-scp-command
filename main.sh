@@ -9,6 +9,7 @@ set -e
 #            [[user@]host1:]file1 ... [[user@]host2:]file2
 
 # PLUGIN_KEY <required>
+# PLUGIN_PUBLIC_KEY <required>
 # PLUGIN_PORT <default: 22>
 # PLUGIN_SOURCE <required>
 # PLUGIN_TARGET <required>
@@ -29,7 +30,9 @@ echo
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 echo "$PLUGIN_KEY" | tee ~/.ssh/id_rsa
+echo "$PLUGIN_PUBLIC_KEY" | tee ~/.ssh/id_rsa.pub
 chmod 600 ~/.ssh/id_rsa
+chmod 644 ~/.ssh/id_rsa.pub
 
 ls -la ~/.ssh
 cat ~/.ssh/id_rsa
